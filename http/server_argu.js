@@ -1,4 +1,4 @@
-//一个可以访问静态文件的服务器，可以判断路径是否属于文件或者目录
+//在server.js基础上，增加获取访问地址的请求参数功能,get or post
 const http = require('http')
 const url = require('url')
 const util = require('util')
@@ -7,7 +7,7 @@ const path = require('path')
 
 //创建服务器
 http.createServer((req,res)=>{
-    console.log(req.method,req.url,'method')
+    console.log(req.method,req.url,'请求信息')
     //获取文件路径，
     var pathname = url.parse(req.url).pathname.substring(1);
     var filepath = path.resolve(__dirname, pathname);
@@ -24,13 +24,25 @@ http.createServer((req,res)=>{
             res.write('这是目录','utf16le')
             res.end()
         }else {
+            //获取请求方式
+            if(req.method === 'GET'){
+               console.log('get请求参数', url.parse(req.url, true).query)
+            }else {
+                var requrl = '';
+                req.on('data',chunk=>{
+                    requrl += chunk;
+                })
+                req.on('end', ()=>{
+                    console.log('post请求参数是', requrl)
+                })
+            }
             //读取文件内容并输出
             fs.readFile(filepath,(err, data)=>{
                 if(err) console.log(err);
                 //设置响应状态以及格式
                 res.statusCode = 201;
                 res.setHeader('Content-Type','text/html; charset=UTF-8');
-                res.write(util.inspect(url.parse(req.url))) //测试用：util.inspect(url.parse(req.url))
+                res.write(util.inspect(url.parse(req.url, true))) //测试用：util.inspect(url.parse(req.url))
                 res.end()
             })
         }
