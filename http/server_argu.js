@@ -28,12 +28,12 @@ http.createServer((req,res)=>{
             if(req.method === 'GET'){
                console.log('get请求参数', url.parse(req.url, true).query)
             }else {
-                var requrl = '';
+                var req_argu = '';
                 req.on('data',chunk=>{
-                    requrl += chunk;
+                    req_argu += chunk;
                 })
                 req.on('end', ()=>{
-                    console.log('post请求参数是', requrl)
+                    console.log('post请求参数是', req_argu);
                 })
             }
             //读取文件内容并输出
@@ -48,6 +48,5 @@ http.createServer((req,res)=>{
         }
         
     })
-    
     
 }).listen(6767,()=>{console.log('srever listen on 6767')})

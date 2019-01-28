@@ -30,7 +30,7 @@ http.createServer((req,res)=>{
                 //设置响应状态以及格式
                 res.statusCode = 201;
                 res.setHeader('Content-Type','text/html; charset=UTF-8');
-                res.write(util.inspect(url.parse(req.url))) //测试用：util.inspect(url.parse(req.url))
+                res.write(data) //测试用：util.inspect(url.parse(req.url))
                 res.end()
             })
         }
