@@ -23,17 +23,16 @@ var listener1 = function(...args){
 
             }
     }
-    console.log(args,'我被触发了111')
+    console.log(args,'我被触发了111');
     })
-    
 }
 
 var listener2 = function(...args){
-    console.log(args,'我被触发了222')
+    console.log(args,'我被触发了222');
 }
 
-myevent.on('click',listener1)
-myevent.on('click',listener2)
+myevent.on('click',listener1);
+myevent.on('click',listener2);
 
 //myevent.removeListener('click',listener1) //移除监听事件要写在on和emit两者之间，否则不生效
 
