@@ -5,21 +5,25 @@ const cheerio = require('cheerio')
 const app = express();
 
 app.get('/',(req,res)=>{
-    axios.get('https://cnodejs.org/').then(data=>{
+    axios.get('http://hz.hshb.com/ershoufang/v4087/').then(data=>{
+        //console.log(data.data)
         var list = [];
         const $ = cheerio.load(data.data);
-        $('.cell').each(function(index,item){
+        $('.Tmp-Info').each(function(index,item){
             var $item = $(item);
             list.push({
-                href:'http://cnodejs.org' + $item.find('.topic_title').attr('href'), 
-                title: $item.find('.topic_title').attr('title'),
-                author: $item.find('.user_avatar img').attr('title'),
+                name:'金地自在城', 
+                value: $item.find('.fc-gray').html(),
             });
         })
+        console.log(list)
         res.send(list)   
     })
       
 })
+
+
+
 app.listen(3000,()=>console.log('listen on 3000'))
 
 
