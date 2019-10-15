@@ -34,7 +34,6 @@ function fetchData(url){
         console.log(html('.reply_content div p').eq(0).html());
         resolve()
     })
-    
 }
 
 function getComment(href, $item) {
