@@ -42,3 +42,8 @@ console.log(buf3.toString('base64')) //==> aABlAGwAbABvAA==
 var myname2 = Buffer.from('翔','ucs2') 
 console.log(myname2.toString()) //==> 乱码！因为toString默认用utf8解码，所以遇到utf16编码的字符串就会乱码了
 console.log(myname2.toString('ucs2')) //==> 翔
+
+//slice  
+var buf_hello = Buffer.from('hellohworld,xiang!!!');
+console.log(buf_hello.slice(0,5));
+console.log(buf_hello.slice(5));
