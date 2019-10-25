@@ -22,8 +22,16 @@ describe('#main.js',()=>{
         it('sum should return 6',()=>{
             assert.equal(sum(1,2,3),6)
         })
-        it('sum should return 10',()=>{
+        it('sum should return 0',()=>{
             assert.equal(sum(1,2,3,4),10)
+        })
+        it('sum should return 15',()=>{
+            try{
+                assert.equal(sum(1,2,3,4,15),15)
+            }catch(err){
+                //console.log(err,'err')
+            }
+            
         })
     })
 })
