@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "koa": "^2.10.0",
+    "mocha": "^6.2.2",
+    "supertest": "^4.0.2"
+  }
+}
