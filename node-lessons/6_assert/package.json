@@ -1,0 +1,30 @@
+{
+  "name": "6_assert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "_should-equal@2.0.0@should-equal": "^2.0.0",
+    "_should-type-adaptors@1.1.0@should-type-adaptors": "^1.1.0",
+    "_should-type@1.4.0@should-type": "^1.4.0",
+    "_should-util@1.0.1@should-util": "^1.0.1",
+    "_should-format@3.0.3@should-format": "^3.0.3",
+    "_should@13.2.3@should": "^13.2.3",
+    "should-format": "^3.0.3",
+    "should": "^13.2.3",
+    "should-equal": "^2.0.0",
+    "should-type": "^1.4.0",
+    "should-util": "^1.0.1",
+    "should-type-adaptors": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "nyc": "nyc mocha --timeout=3000"
+  },
+  "author": "",
+  "license": "ISC"
+}

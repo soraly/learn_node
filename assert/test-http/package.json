@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "mocha"
+  },
   "devDependencies": {
     "koa": "^2.10.0",
     "mocha": "^6.2.2",
